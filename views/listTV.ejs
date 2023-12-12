@@ -1,0 +1,31 @@
+<h1>Interface télévision</h1>
+<h2>Télévisions disponibles</h2>
+<ul>
+  <% for(tv of tv_dispo) { %>
+    <li>
+      <%= tv.marque %> - <%= tv.prix %>$ - <a href="/buy/<%= tv.id %>">Acheter</a>
+    </li>
+    <% } %>
+</ul>
+<h2>Télévisions achetées</h2>
+<h3>Télévisions fonctionnelles</h3>
+<ul>
+  <% for(tv of tv_fonctionnelle) { %>
+    <li>
+      <%= tv.marque %> - <%= tv.prix %>$
+          <form action="/broken/<%= tv.id %>" method="POST">
+            <input name="usure" />
+            <input type="submit" value="Envoyer rapport d'usure" />
+          </form>
+    </li>
+    <% } %>
+</ul>
+<h3>Télévision usées</h3>
+<ul>
+  <% for(tv of tv_usee) { %>
+    <li>
+      <%= tv.marque %> - prix : <%= tv.prix %>$ - usure : <%= tv.usure %>
+    </li>
+    <% } %>
+</ul>
+Prix total des télévisions achetées : <%= prix_total %> $
